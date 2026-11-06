@@ -1,0 +1,19 @@
+{
+  "name": "logicgate-sdet-live-farm",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LogicGate SDET interview pre-work scaffold - same toolchain as the live exercise, no application logic. Shared with candidates ahead of time; the real code is swapped in live.",
+  "workspaces": [
+    "angular-app",
+    "mock-server",
+    "playwright"
+  ],
+  "scripts": {
+    "setup": "npm install && npx playwright install --with-deps chromium",
+    "dev": "concurrently -n mock-server,angular -c blue,magenta \"npm run dev -w mock-server\" \"npm start -w angular-app\"",
+    "start": "npm run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

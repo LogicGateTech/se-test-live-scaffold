@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Pre-Interview Environment Check</h1>
+  <p class="subtitle">
+    This is scaffolding, not the interview exercise. It just proves your setup works.
+  </p>
+
+  <div class="card">
+    <p>
+      Click the button below. It calls the mock server through the same dev-server proxy the
+      real application will use. If you see a success message, your environment is ready for
+      the live session.
+    </p>
+
+    <button data-testid="run-check-button" (click)="runCheck()">Run Environment Check</button>
+
+    <p *ngIf="status === 'checking'" data-testid="check-status">Checking...</p>
+    <p *ngIf="status === 'ok'" data-testid="check-status" class="status-ok">
+      ✅ All wired up. {{ detail }}
+    </p>
+    <p *ngIf="status === 'error'" data-testid="check-status" class="status-error">
+      ❌ {{ detail }}
+    </p>
+  </div>
+</div>
